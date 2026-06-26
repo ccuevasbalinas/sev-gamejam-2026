@@ -19,7 +19,7 @@ namespace Patterns.ServiceLocator
     /// </summary>
     public static class ServiceLocator
     {
-        private static readonly Dictionary<Type, object> _services = new Dictionary<Type, object>();
+        private static readonly Dictionary<Type, object> _services = new();
 
         /// <summary>
         /// Registers a service instance of type <typeparamref name="T"/> into the service locator.
@@ -70,13 +70,29 @@ namespace Patterns.ServiceLocator
         /// <returns>The service instance cast to type <typeparamref name="T"/> if found; otherwise, default value of <typeparamref name="T"/>.</returns>
         public static T GetService<T>(Type type)
         {
-            if (!_services.ContainsKey(type))
+            Type serviceType = typeof(T);
+
+            if (!_services.ContainsKey(serviceType))
             {
-                Debug.LogWarning("Service of type " + type + " not found.");
+                Debug.LogWarning("Service of type " + serviceType + " not found.");
                 return default;
             }
 
-            return (T)_services[type];
+            return (T)_services[serviceType];
+        }
+
+        /// <summary>
+        /// Retrieves a registered service instance by the specified type.
+        /// </summary>
+        /// <typeparam name="T">The expected type of the service.</typeparam>
+        /// <param name="type">The type key used to look up the service.</param>
+        /// <returns>
+        /// The service instance cast to type <typeparamref name="T"/> if found;
+        /// otherwise, the default value of <typeparamref name="T"/>.
+        /// </returns>
+        public static T Get<T>()
+        {
+            return GetService<T>(typeof(T));
         }
     }
 }
