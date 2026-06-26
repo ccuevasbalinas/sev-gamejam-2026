@@ -69,15 +69,17 @@ namespace Patterns.ObjectPool
             foreach (var obj in pool)
             {
                 // Look for an inactive (available) object
-                if (!obj.gameObject.activeInHierarchy)
+                if (!obj.gameObject.activeSelf)
                 {
                     obj.gameObject.SetActive(true);
                     return obj;
                 }
             }
 
-            // If no inactive object is found, create a new one and return it
-            return AddObjectToPool();
+            T newObj = AddObjectToPool();
+            newObj.gameObject.SetActive(true);
+
+            return newObj;
         }
 
         /// <summary>
@@ -85,6 +87,9 @@ namespace Patterns.ObjectPool
         /// </summary>
         public void ReturnToPool(T obj)
         {
+            if (obj == null)
+                return;
+
             obj.gameObject.SetActive(false);
         }
     }
