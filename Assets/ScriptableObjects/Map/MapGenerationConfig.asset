@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a27b59aad5dc94880b8609c97cb6ad, type: 3}
-  m_Name: PlayerHealth
+  m_Script: {fileID: 11500000, guid: 1bef0b5274bf4b74d992da5022a6c111, type: 3}
+  m_Name: MapGenerationConfig
   m_EditorClassIdentifier: 
-  maxWorldAHealth: 3
-  maxWorldBHealth: 3
+  segmentPrefabs: []
+  initialPoolSizePerSegment: 3
+  initialSegments: 6
+  maxActiveSegments: 8

@@ -12,9 +12,6 @@ namespace Runtime.GameFlow
 {
     public class GameBootstrap : MonoBehaviour
     {
-        [Header("Config")]
-        [SerializeField] private GameSceneConfig config;
-
         [Header("References")]
         [SerializeField] private GameObject player;
 
@@ -36,10 +33,7 @@ namespace Runtime.GameFlow
 
         private void Start()
         {
-            if (config.StartInMainMenu)
-                gameManager.GoToMainMenu();
-            else
-                gameManager.StartGame();
+            gameManager.GoToMainMenu();
         }
 
         private void Update()

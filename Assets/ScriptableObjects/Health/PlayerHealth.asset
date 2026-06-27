@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd739e169a25e24d82b3dab27d9f438, type: 3}
-  m_Name: GameSceneTestConfig
+  m_Script: {fileID: 11500000, guid: d7a27b59aad5dc94880b8609c97cb6ad, type: 3}
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
-  startInMainMenu: 1
+  maxPhysicalHealth: 3
+  maxMirrorHealth: 3
