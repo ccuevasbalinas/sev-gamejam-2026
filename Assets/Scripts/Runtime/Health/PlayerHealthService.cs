@@ -54,7 +54,7 @@ namespace Runtime.Health
             }
 
             if (IsDead)
-                ServiceLocator.Get<IGameManagerService>()?.FinishGame();
+                ServiceLocator.Get<IGameManager>()?.FinishGame();
         }
 
         public void Heal(DimensionTarget target, int amount)

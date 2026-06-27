@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bef0b5274bf4b74d992da5022a6c111, type: 3}
   m_Name: MapGenerationConfig
   m_EditorClassIdentifier: 
-  segmentPrefabs: []
-  initialPoolSizePerSegment: 3
+  segmentPrefabs:
+  - {fileID: 6893866738126675966, guid: 87dead57d4abbef4fa299be74c3cebd2, type: 3}
+  initialPoolSizePerSegment: 6
   initialSegments: 6
-  maxActiveSegments: 8
+  maxActiveSegments: 12

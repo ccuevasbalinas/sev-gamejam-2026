@@ -15,7 +15,7 @@ namespace Test.Player
         private Vector3 initialPosition;
         private Quaternion initialRotation;
 
-        IGameManagerService gameManager;
+        IGameManager gameManager;
 
         private void Awake()
         {
@@ -25,7 +25,7 @@ namespace Test.Player
 
         private void Start()
         {
-            gameManager = ServiceLocator.Get<IGameManagerService>();
+            gameManager = ServiceLocator.Get<IGameManager>();
         }
 
         private void Update()

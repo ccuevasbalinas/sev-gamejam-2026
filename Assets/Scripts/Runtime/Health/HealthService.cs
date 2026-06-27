@@ -27,7 +27,7 @@ namespace Runtime.Health
             {
                 CurrentHealth = 0;
 
-                ServiceLocator.Get<IGameManagerService>()?.FinishGame();
+                ServiceLocator.Get<IGameManager>()?.FinishGame();
             }
         }
 

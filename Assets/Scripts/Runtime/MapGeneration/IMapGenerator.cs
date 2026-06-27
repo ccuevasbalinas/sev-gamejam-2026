@@ -1,6 +1,6 @@
 namespace Runtime.MapGeneration
 {
-    public interface IMapGeneratorService
+    public interface IMapGenerator
     {
         void GenerateInitialMap();
         void SpawnSegment();

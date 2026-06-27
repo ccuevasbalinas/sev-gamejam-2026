@@ -1,6 +1,9 @@
-using Runtime.World;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+using Runtime.World;
+using Patterns.ServiceLocator;
+using Runtime.GameFlow;
 
 namespace Runtime.Character
 {
@@ -14,8 +17,9 @@ namespace Runtime.Character
         private void Awake()
         {
             player = GetComponent<PlayerCharacter>();
+
             inputActions = new InputSystem_Actions();
-            input = inputActions.Player; // <-- property access, not "new"
+            input = inputActions.Player;
         }
 
         private void OnEnable()
@@ -42,15 +46,61 @@ namespace Runtime.Character
             input.Disable();
         }
 
-        private void OnJump(InputAction.CallbackContext context) => player.RequestJump();
+        private bool CanProcessInput()
+        {
+            IGameManager gameManager =
+                ServiceLocator.Get<IGameManager>();
 
-        private void OnSlidePerformed(InputAction.CallbackContext context) => player.RequestSlide(true);
-        private void OnSlideCanceled(InputAction.CallbackContext context) => player.RequestSlide(false);
+            return gameManager != null &&
+                   gameManager.CurrentState == GameState.Playing;
+        }
 
-        private void OnAttack(InputAction.CallbackContext context) => player.RequestAttack();
+        private void OnJump(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
 
-        private void OnTransitionMirror(InputAction.CallbackContext context) => player.RequestSwitchDimension(DimensionType.Mirror);
+            player.RequestJump();
+        }
 
-        private void OnTransitionPhysical(InputAction.CallbackContext context) => player.RequestSwitchDimension(DimensionType.Physical);
+        private void OnSlidePerformed(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
+
+            player.RequestSlide(true);
+        }
+
+        private void OnSlideCanceled(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
+
+            player.RequestSlide(false);
+        }
+
+        private void OnAttack(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
+
+            player.RequestAttack();
+        }
+
+        private void OnTransitionMirror(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
+
+            player.RequestSwitchDimension(DimensionType.Mirror);
+        }
+
+        private void OnTransitionPhysical(InputAction.CallbackContext context)
+        {
+            if (!CanProcessInput())
+                return;
+
+            player.RequestSwitchDimension(DimensionType.Physical);
+        }
     }
 }

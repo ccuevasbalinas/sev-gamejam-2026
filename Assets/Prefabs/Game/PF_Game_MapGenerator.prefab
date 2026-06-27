@@ -108,6 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b0f55e6333c5f489877862b305c04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: cc6049f7e6160da48a5b3b4044bdb00a, type: 2}
+  config: {fileID: 11400000, guid: c4e409f90a793644a9df16d005b6044f, type: 2}
   segmentsParent: {fileID: 7768014329451955271}
   firstSpawnPoint: {fileID: 660063980317228475}

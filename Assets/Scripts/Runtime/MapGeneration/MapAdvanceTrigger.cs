@@ -19,7 +19,7 @@ namespace Runtime.MapGeneration
 
             triggered = true;
 
-            IMapGeneratorService generator = ServiceLocator.Get<IMapGeneratorService>();
+            IMapGenerator generator = ServiceLocator.Get<IMapGenerator>();
 
             generator?.SpawnSegment();
         }

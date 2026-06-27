@@ -36,7 +36,7 @@ namespace Runtime.Health
             if (!other.CompareTag(playerTag))
                 return;
 
-            IGameManagerService gameManager = ServiceLocator.Get<IGameManagerService>();
+            IGameManager gameManager = ServiceLocator.Get<IGameManager>();
 
             if (gameManager == null || gameManager.CurrentState != GameState.Playing)
                 return;

@@ -1,6 +1,6 @@
 namespace Runtime.GameFlow
 {
-    public interface IGameManagerService
+    public interface IGameManager
     {
         GameState CurrentState { get; }
         GameStatistics LastStatistics { get; }

@@ -9,14 +9,14 @@ using UnityEngine;
 
 namespace Runtime.GameFlow
 {
-    public class GameManagerService : IGameManagerService
+    public class GameManager : IGameManager
     {
         private readonly IReadOnlyList<IResettableGameSystem> resettableSystems;
 
         public GameState CurrentState { get; private set; }
         public GameStatistics LastStatistics { get; private set; }
 
-        public GameManagerService(IReadOnlyList<IResettableGameSystem> resettableSystems)
+        public GameManager(IReadOnlyList<IResettableGameSystem> resettableSystems)
         {
             this.resettableSystems = resettableSystems;
             CurrentState = GameState.Boot;
@@ -83,13 +83,12 @@ namespace Runtime.GameFlow
             ServiceLocator.Get<IWorldState>()?.ResetDimension();
 
             IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
-
             timer?.Reset();
 
             foreach (IResettableGameSystem system in resettableSystems)
             {
                 system.ResetSystem();
-            }   
+            }
         }
     }
 }

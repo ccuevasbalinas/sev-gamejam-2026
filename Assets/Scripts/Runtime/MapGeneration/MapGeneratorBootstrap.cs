@@ -13,23 +13,23 @@ namespace Runtime.MapGeneration
         [SerializeField] private Transform segmentsParent;
         [SerializeField] private Transform firstSpawnPoint;
 
-        private IMapGeneratorService mapGeneratorService;
+        private IMapGenerator MapGenerator;
 
         private void Awake()
         {
-            mapGeneratorService = new MapGeneratorService(config, segmentsParent, firstSpawnPoint);
+            MapGenerator = new MapGenerator(config, segmentsParent, firstSpawnPoint);
 
-            ServiceLocator.Register<IMapGeneratorService>(mapGeneratorService);
+            ServiceLocator.Register<IMapGenerator>(MapGenerator);
         }
 
         public void ResetSystem()
         {
-            mapGeneratorService.ResetMap();
+            MapGenerator.ResetMap();
         }
 
         private void OnDestroy()
         {
-            ServiceLocator.Unregister<IMapGeneratorService>();
+            ServiceLocator.Unregister<IMapGenerator>();
         }
     }
 }

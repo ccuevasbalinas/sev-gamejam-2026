@@ -25,13 +25,13 @@ namespace Runtime.UI
         [SerializeField] private TMP_Text finalCoinsText;
         [SerializeField] private TMP_Text finalTimeText;
 
-        private IGameManagerService gameManager;
+        private IGameManager gameManager;
 
         private GameState lastState;
 
         private void Start()
         {
-            gameManager = ServiceLocator.Get<IGameManagerService>();
+            gameManager = ServiceLocator.Get<IGameManager>();
             lastState = GameState.Boot;
 
             RefreshPanels();

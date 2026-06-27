@@ -5,7 +5,7 @@ using Patterns.ObjectPool;
 
 namespace Runtime.MapGeneration
 {
-    public class MapGeneratorService : IMapGeneratorService
+    public class MapGenerator : IMapGenerator
     {
         private readonly MapGenerationConfig config;
         private readonly Transform parent;
@@ -16,7 +16,7 @@ namespace Runtime.MapGeneration
 
         private Transform nextSpawnPoint;
 
-        public MapGeneratorService(MapGenerationConfig config, Transform parent, Transform firstSpawnPoint)
+        public MapGenerator(MapGenerationConfig config, Transform parent, Transform firstSpawnPoint)
         {
             this.config = config;
             this.parent = parent;

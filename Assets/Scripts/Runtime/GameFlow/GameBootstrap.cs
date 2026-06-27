@@ -24,7 +24,7 @@ namespace Runtime.GameFlow
         [Header("World")]
         [SerializeField] private WorldStateConfig worldStateConfig;
 
-        private IGameManagerService gameManager;
+        private IGameManager gameManager;
 
         private void Awake()
         {
@@ -58,9 +58,9 @@ namespace Runtime.GameFlow
 
             List<IResettableGameSystem> systems = GetResettableSystems();
 
-            gameManager = new GameManagerService(systems);
+            gameManager = new GameManager(systems);
 
-            ServiceLocator.Register<IGameManagerService>(gameManager);
+            ServiceLocator.Register<IGameManager>(gameManager);
         }
 
         private List<IResettableGameSystem> GetResettableSystems()
@@ -78,7 +78,7 @@ namespace Runtime.GameFlow
 
         private void UnregisterServices()
         {
-            ServiceLocator.Unregister<IGameManagerService>();
+            ServiceLocator.Unregister<IGameManager>();
             ServiceLocator.Unregister<IPickupCollector>();
             ServiceLocator.Unregister<IApplicationService>();
             ServiceLocator.Unregister<IGameTimerService>();
