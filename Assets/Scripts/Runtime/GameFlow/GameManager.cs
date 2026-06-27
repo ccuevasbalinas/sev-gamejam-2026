@@ -36,7 +36,7 @@ namespace Runtime.GameFlow
             CurrentState = GameState.Playing;
             Time.timeScale = 1f;
 
-            ServiceLocator.Get<IGameTimerService>()?.Start();
+            ServiceLocator.Get<IGameTimer>()?.Start();
         }
 
         public void FinishGame()
@@ -46,7 +46,7 @@ namespace Runtime.GameFlow
 
             CurrentState = GameState.Results;
 
-            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
+            IGameTimer timer = ServiceLocator.Get<IGameTimer>();
 
             IScoreService score = ServiceLocator.Get<IScoreService>();
 
@@ -74,7 +74,7 @@ namespace Runtime.GameFlow
             if (CurrentState != GameState.Playing)
                 return;
 
-            ServiceLocator.Get<IGameTimerService>()?.Tick(deltaTime);
+            ServiceLocator.Get<IGameTimer>()?.Tick(deltaTime);
             ServiceLocator.Get<IPickupEffectHandler>()?.Tick(deltaTime);
         }
 
@@ -84,7 +84,7 @@ namespace Runtime.GameFlow
             ServiceLocator.Get<IPlayerHealth>()?.ResetHealth();
             ServiceLocator.Get<IWorldState>()?.ResetDimension();
 
-            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
+            IGameTimer timer = ServiceLocator.Get<IGameTimer>();
             timer?.Reset();
 
             foreach (IResettableGameSystem system in resettableSystems)

@@ -1,6 +1,6 @@
 namespace Runtime.Timer
 {
-    public class GameTimerService : IGameTimerService
+    public class GameTimer : IGameTimer
     {
         public float ElapsedTime { get; private set; }
         public bool IsRunning { get; private set; }

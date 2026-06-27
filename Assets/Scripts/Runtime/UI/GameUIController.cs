@@ -66,7 +66,7 @@ namespace Runtime.UI
         private void UpdateHud()
         {
             IScoreService score = ServiceLocator.Get<IScoreService>();
-            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
+            IGameTimer timer = ServiceLocator.Get<IGameTimer>();
             IPlayerHealth health = ServiceLocator.Get<IPlayerHealth>();
 
             if (score != null)

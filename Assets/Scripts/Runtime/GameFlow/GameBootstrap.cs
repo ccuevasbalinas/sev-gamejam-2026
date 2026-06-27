@@ -49,7 +49,7 @@ namespace Runtime.GameFlow
         private void RegisterServices()
         {
             ServiceLocator.Register<IScoreService>(new ScoreService());
-            ServiceLocator.Register<IGameTimerService>(new GameTimerService());
+            ServiceLocator.Register<IGameTimer>(new GameTimer());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
             ServiceLocator.Register<IPickupCollector>(new PickupCollector(player));
             ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(
@@ -82,7 +82,7 @@ namespace Runtime.GameFlow
             ServiceLocator.Unregister<IGameManager>();
             ServiceLocator.Unregister<IPickupCollector>();
             ServiceLocator.Unregister<IApplicationService>();
-            ServiceLocator.Unregister<IGameTimerService>();
+            ServiceLocator.Unregister<IGameTimer>();
             ServiceLocator.Unregister<IScoreService>();
             ServiceLocator.Unregister<IPlayerHealth>();
             ServiceLocator.Unregister<IWorldState>();

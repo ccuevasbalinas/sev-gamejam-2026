@@ -1,6 +1,6 @@
 namespace Runtime.Timer
 {
-    public interface IGameTimerService
+    public interface IGameTimer
     {
         float ElapsedTime { get; }
         bool IsRunning { get; }
