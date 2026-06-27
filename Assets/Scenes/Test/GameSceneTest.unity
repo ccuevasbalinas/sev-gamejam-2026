@@ -388,6 +388,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_GameRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 4818128973700326184, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814116411532313910, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814116411532313910, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7535421710405155310, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -427,6 +439,22 @@ PrefabInstance:
     - target: {fileID: 7535421710405155310, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: mirrorRailX
+      value: -0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: physicalRailX
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: railSwitchSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: dimensionSwitchCooldown
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9132651427890663329, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: playerHealthConfig

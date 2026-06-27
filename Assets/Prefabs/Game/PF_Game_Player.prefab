@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 1701337706676769948}
   - component: {fileID: 4574907574918839389}
   - component: {fileID: 2757279127099061281}
-  - component: {fileID: 3517217261473893670}
-  - component: {fileID: 7271934325884210877}
+  - component: {fileID: 1244582387760191605}
+  - component: {fileID: 5577910754025106734}
+  - component: {fileID: 1768882071415672513}
+  - component: {fileID: 4246007625712469263}
   m_Layer: 0
   m_Name: PF_Game_Player
   m_TagString: Player
@@ -112,7 +114,30 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3517217261473893670
+--- !u!114 &1244582387760191605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885892396379266045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ac3b1aa3144299b5d434aedcd6f196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 6
+  animator: {fileID: 0}
+  dimensionSwitchCooldown: 1.5
+  physicalRailX: 0.98
+  mirrorRailX: -0.98
+  railSwitchSpeed: 8
+  slideSpeedMultiplier: 1.5
+  slideDuration: 0.5
+  forwardSpeed: 10
+  autoRunEnabled: 1
+--- !u!54 &5577910754025106734
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,10 +161,10 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
+  m_Interpolate: 1
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7271934325884210877
+--- !u!114 &1768882071415672513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +173,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4885892396379266045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697b5a9941b99e443b4b270002eee9e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 036817a9136a48f68fb0499715a93532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 6
-  lateralSpeed: 5
-  lateralLimit: 2.5
+  acceleration: 20
+  deceleration: 25
+  groundCheckDistance: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &4246007625712469263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885892396379266045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efefa01ab1d44c2ba6fb44363586aef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

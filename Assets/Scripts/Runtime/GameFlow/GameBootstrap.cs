@@ -1,11 +1,12 @@
-using System.Collections.Generic;
-using UnityEngine;
 using Patterns.ServiceLocator;
+using Runtime.Health;
+using Runtime.Menu;
+using Runtime.Pickups;
 using Runtime.Score;
 using Runtime.Timer;
-using Runtime.Pickups;
-using Runtime.Menu;
-using Runtime.Health;
+using Runtime.World;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Runtime.GameFlow
 {
@@ -21,7 +22,10 @@ namespace Runtime.GameFlow
         [SerializeField] private MonoBehaviour[] resettableSystems;
 
         [Header("Health")]
-        [SerializeField] private PlayerHealthConfig playerHealthConfig;
+        [SerializeField] private PlayerDualHealthConfig playerHealthConfig;
+
+        [Header("World")]
+        [SerializeField] private WorldStateConfig worldStateConfig;
 
         private IGameManagerService gameManager;
 
@@ -54,7 +58,9 @@ namespace Runtime.GameFlow
             ServiceLocator.Register<IGameTimerService>(new GameTimerService());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
             ServiceLocator.Register<IPickupCollector>(new PickupCollectorService(player));
-            ServiceLocator.Register<IHealthService>(new HealthService(playerHealthConfig.MaxHealth));
+            ServiceLocator.Register<IPlayerHealthService>(new PlayerHealthService(
+                playerHealthConfig.MaxPhysicalHealth, playerHealthConfig.MaxMirrorHealth)); 
+            ServiceLocator.Register<IWorldState>(new WorldStateService(worldStateConfig));
 
             List<IResettableGameSystem> systems = GetResettableSystems();
 
@@ -83,7 +89,8 @@ namespace Runtime.GameFlow
             ServiceLocator.Unregister<IApplicationService>();
             ServiceLocator.Unregister<IGameTimerService>();
             ServiceLocator.Unregister<IScoreService>();
-            ServiceLocator.Unregister<IHealthService>();
+            ServiceLocator.Unregister<IPlayerHealthService>();
+            ServiceLocator.Unregister<IWorldState>();
         }
     }
 }

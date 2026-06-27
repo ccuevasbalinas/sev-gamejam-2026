@@ -1,14 +1,18 @@
 using UnityEngine;
 using Patterns.ServiceLocator;
-using Runtime.Health;
 using Runtime.GameFlow;
+using Runtime.World;
 
-namespace Runtime.Obstacles
+namespace Runtime.Health
 {
     [RequireComponent(typeof(Collider))]
     public class ObstacleDamage : MonoBehaviour
     {
+        [Header("Damage")]
+        [SerializeField] private DimensionTarget targetDimension = DimensionTarget.Physical;
         [SerializeField] private int damage = 1;
+
+        [Header("Collision")]
         [SerializeField] private string playerTag = "Player";
 
         private bool hasHit;
@@ -16,6 +20,12 @@ namespace Runtime.Obstacles
         private void OnEnable()
         {
             hasHit = false;
+        }
+
+        private void Reset()
+        {
+            Collider col = GetComponent<Collider>();
+            col.isTrigger = true;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -28,19 +38,12 @@ namespace Runtime.Obstacles
 
             IGameManagerService gameManager = ServiceLocator.Get<IGameManagerService>();
 
-            if (gameManager == null ||
-                gameManager.CurrentState != GameState.Playing)
+            if (gameManager == null || gameManager.CurrentState != GameState.Playing)
                 return;
 
             hasHit = true;
 
-            ServiceLocator.Get<IHealthService>()?.Damage(damage);
-        }
-
-        private void Reset()
-        {
-            Collider col = GetComponent<Collider>();
-            col.isTrigger = true;
+            ServiceLocator.Get<IPlayerHealthService>()?.Damage(targetDimension, damage);
         }
     }
 }
