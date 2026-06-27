@@ -18,6 +18,7 @@ namespace Runtime.Character
 
         [Header("Slide")] [SerializeField] private float slideSpeedMultiplier = 1.5f;
         [SerializeField] private float slideDuration = 0.5f;
+        [SerializeField] private float slideCooldown = 0.2f; // minimum gap before another slide can start
 
         [Header("Auto-forward")] [SerializeField]
         private float forwardSpeed = 6f;
@@ -28,7 +29,8 @@ namespace Runtime.Character
         private float switchCooldownTimer;
         private float slideTimer;
         private bool isSliding;
-
+        private float slideCooldownTimer;
+        
         private bool isTransitioningLane;
         private float laneTransitionTargetX;
 
@@ -70,6 +72,9 @@ namespace Runtime.Character
         {
             if (switchCooldownTimer > 0f)
                 switchCooldownTimer -= Time.deltaTime;
+            
+            if (slideCooldownTimer > 0f)
+                slideCooldownTimer -= Time.deltaTime;
 
             if (isSliding)
             {
@@ -77,6 +82,7 @@ namespace Runtime.Character
                 if (slideTimer <= 0f)
                 {
                     isSliding = false;
+                    slideCooldownTimer = slideCooldown;
                     motor?.SetHeightScale(1f);
                 }
             }
@@ -162,7 +168,7 @@ namespace Runtime.Character
         {
             if (isPressed)
             {
-                if (!IsGrounded) return;
+                if (!IsGrounded || isSliding || slideCooldownTimer > 0f) return;
                 isSliding = true;
                 slideTimer = slideDuration;
                 motor?.SetHeightScale(0.5f);

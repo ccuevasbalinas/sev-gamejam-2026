@@ -188,6 +188,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_GameRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_StopNaN
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_Dithering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110483781071620794, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: offset.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110483781071620794, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: offset.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110483781071620794, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: mirrorRotationY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110483781071620794, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: physicalRotationY
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110483781071620794, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: rotationSmoothSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7535421710405155310, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -227,6 +263,30 @@ PrefabInstance:
     - target: {fileID: 7535421710405155310, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: mirrorRailX
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: physicalRailX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: slideDuration
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809296424526767785, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
+      propertyPath: railSwitchSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
