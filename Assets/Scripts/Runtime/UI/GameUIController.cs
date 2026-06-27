@@ -67,7 +67,7 @@ namespace Runtime.UI
         {
             IScoreService score = ServiceLocator.Get<IScoreService>();
             IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
-            IPlayerHealthService health = ServiceLocator.Get<IPlayerHealthService>();
+            IPlayerHealth health = ServiceLocator.Get<IPlayerHealth>();
 
             if (score != null)
             {

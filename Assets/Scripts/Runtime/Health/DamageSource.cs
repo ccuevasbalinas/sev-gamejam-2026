@@ -8,10 +8,10 @@ namespace Runtime.Health
 
         private void OnTriggerEnter(Collider other)
         {
-            IHealthService health = other.GetComponent<IHealthService>();
+            IHealth health = other.GetComponent<IHealth>();
 
             if (health == null)
-                health = other.GetComponentInParent<IHealthService>();
+                health = other.GetComponentInParent<IHealth>();
 
             health?.Damage(damage);
         }

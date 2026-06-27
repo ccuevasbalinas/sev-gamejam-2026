@@ -52,7 +52,7 @@ namespace Runtime.GameFlow
             ServiceLocator.Register<IGameTimerService>(new GameTimerService());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
             ServiceLocator.Register<IPickupCollector>(new PickupCollectorService(player));
-            ServiceLocator.Register<IPlayerHealthService>(new PlayerHealthService(
+            ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(
                 playerHealthConfig.MaxPhysicalHealth, playerHealthConfig.MaxMirrorHealth)); 
             ServiceLocator.Register<IWorldState>(new WorldStateService(worldStateConfig));
 
@@ -83,7 +83,7 @@ namespace Runtime.GameFlow
             ServiceLocator.Unregister<IApplicationService>();
             ServiceLocator.Unregister<IGameTimerService>();
             ServiceLocator.Unregister<IScoreService>();
-            ServiceLocator.Unregister<IPlayerHealthService>();
+            ServiceLocator.Unregister<IPlayerHealth>();
             ServiceLocator.Unregister<IWorldState>();
         }
     }

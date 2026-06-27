@@ -3,14 +3,14 @@ using Runtime.GameFlow;
 
 namespace Runtime.Health
 {
-    public class HealthService : IHealthService
+    public class Health : IHealth
     {
         public int CurrentHealth { get; private set; }
         public int MaxHealth { get; private set; }
 
         public bool IsDead => CurrentHealth <= 0;
 
-        public HealthService(int maxHealth)
+        public Health(int maxHealth)
         {
             MaxHealth = maxHealth;
             CurrentHealth = maxHealth;

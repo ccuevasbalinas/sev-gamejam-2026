@@ -1,6 +1,6 @@
 namespace Runtime.Health
 {
-    public interface IHealthService
+    public interface IHealth
     {
         int CurrentHealth { get; }
         int MaxHealth { get; }

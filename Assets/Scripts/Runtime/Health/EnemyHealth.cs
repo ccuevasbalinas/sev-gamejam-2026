@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.Health
 {
-    public class EnemyHealth : MonoBehaviour, IHealthService
+    public class EnemyHealth : MonoBehaviour, IHealth
     {
         [Header("Health")]
         [SerializeField] private int maxHealth = 3;
