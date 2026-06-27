@@ -8,8 +8,13 @@ namespace Runtime.Character
 {
     public class SyncMeshHealth : MonoBehaviour
     {
-        [SerializeField] private GameObject headObject;
-        [SerializeField] private GameObject chestObject;
+        [Header("Physical World")]
+        [SerializeField] private GameObject headObjectPhysical;
+        [SerializeField] private GameObject chestObjectPhysical;
+
+        [Header("Mirror World")]
+        [SerializeField] private GameObject headObjectMirror;
+        [SerializeField] private GameObject chestObjectMirror;
 
         IWorldState worldState;
         IPlayerHealth playerHealth;
@@ -24,31 +29,36 @@ namespace Runtime.Character
 
         public void OnHealthChanged()
         {
-            SyncMesh();
+            SyncMeshWithHealth();
         }
 
         public void OnDimensionChanged()
         {
-            SyncMesh();
+            SyncMeshWithHealth();
         }
 
-        private void SetHealth()
+        private void SyncMeshWithHealth()
         {
             if (worldState.CurrentDimension == DimensionType.Physical)
+            {
                 currentPlayerHealth = playerHealth.PhysicalHealth;
+
+                if (headObjectPhysical != null)
+                    headObjectPhysical.SetActive(currentPlayerHealth == 3);
+
+                if (chestObjectPhysical != null)
+                    chestObjectPhysical.SetActive(currentPlayerHealth >= 2);
+            } 
             else
+            {
                 currentPlayerHealth = playerHealth.MirrorHealth;
-        }
 
-        private void SyncMesh()
-        {
-            SetHealth();
+                if (headObjectMirror != null)
+                    headObjectMirror.SetActive(currentPlayerHealth == 3);
 
-            if (headObject != null)
-                headObject.SetActive(currentPlayerHealth == 3);
-
-            if (chestObject != null)
-                chestObject.SetActive(currentPlayerHealth >= 2);
+                if (chestObjectMirror != null)
+                    chestObjectMirror.SetActive(currentPlayerHealth >= 2);
+            }
         }
     }
 }

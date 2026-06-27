@@ -1,11 +1,14 @@
 using Patterns.ServiceLocator;
 using Runtime.GameFlow;
 using Runtime.World;
+using Patterns.ScriptableEvent;
 
 namespace Runtime.Health
 {
     public class PlayerHealth : IPlayerHealth
     {
+        private readonly PlayerDualHealthConfig config;
+
         public int PhysicalHealth { get; private set; }
         public int MirrorHealth { get; private set; }
 
@@ -14,11 +17,9 @@ namespace Runtime.Health
 
         public bool IsDead => PhysicalHealth <= 0 || MirrorHealth <= 0;
 
-        public PlayerHealth(int maxPhysicalHealth, int maxMirrorHealth)
+        public PlayerHealth(PlayerDualHealthConfig config)
         {
-            MaxPhysicalHealth = maxPhysicalHealth;
-            MaxMirrorHealth = maxMirrorHealth;
-
+            this.config = config;
             ResetHealth();
         }
 
@@ -42,6 +43,8 @@ namespace Runtime.Health
                     break;
             }
 
+            config.OnDamagedEvent?.Raise();
+
             CheckDeath();
         }
 
@@ -60,6 +63,8 @@ namespace Runtime.Health
                     MirrorHealth = 0;
                     break;
             }
+
+            config.OnDamagedEvent?.Raise();
 
             CheckDeath();
         }
@@ -94,6 +99,8 @@ namespace Runtime.Health
                         MirrorHealth = MaxMirrorHealth;
                     break;
             }
+
+            config.OnHealedEvent?.Raise();
         }
 
         public void ResetHealth()
@@ -106,6 +113,8 @@ namespace Runtime.Health
         {
             if (!IsDead)
                 return;
+
+            config.OnDeathEvent?.Raise();
 
             ServiceLocator.Get<IGameManager>()?.FinishGame();
         }

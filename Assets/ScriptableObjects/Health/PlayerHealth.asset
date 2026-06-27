@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPhysicalHealth: 3
   maxMirrorHealth: 3
+  onDamagedEvent: {fileID: 11400000, guid: 49900cf1e93b8e6448b5686d43f72c03, type: 2}
+  onHealedEvent: {fileID: 11400000, guid: 6f3c59b18fd55a94eb3cb2ab29c45e2e, type: 2}
+  onDeathEvent: {fileID: 11400000, guid: 2dd5ad2467aa8ec4dabffd39586fedd1, type: 2}

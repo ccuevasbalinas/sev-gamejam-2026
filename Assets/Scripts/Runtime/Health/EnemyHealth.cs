@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.Health
 {
@@ -8,6 +9,10 @@ namespace Runtime.Health
         public int CurrentHealth { get; private set; }
         public int MaxHealth => maxHealth;
         public bool IsDead => CurrentHealth <= 0;
+
+        [Header("Events")]
+        public UnityEvent OnEnemyDamaged;
+        public UnityEvent OnEnemyDies;
 
         private void Awake()
         {
@@ -26,6 +31,8 @@ namespace Runtime.Health
                 CurrentHealth = 0;
                 Die();
             }
+
+            OnEnemyDamaged?.Invoke();
         }
 
         public void Heal(int amount)
@@ -46,6 +53,7 @@ namespace Runtime.Health
 
         private void Die()
         {
+            OnEnemyDies?.Invoke();
             gameObject.SetActive(false);
         }
     }

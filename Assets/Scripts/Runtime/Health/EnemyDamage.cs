@@ -2,6 +2,7 @@ using UnityEngine;
 using Patterns.ServiceLocator;
 using Runtime.GameFlow;
 using Runtime.World;
+using UnityEngine.Events;
 
 namespace Runtime.Health
 {
@@ -11,6 +12,9 @@ namespace Runtime.Health
         [Header("Damage")]
         [SerializeField] private DimensionTarget targetDimension = DimensionTarget.Both;
         [SerializeField] private int damage = 1;
+
+        [Header("Events")]
+        public UnityEvent OnEnemyDamagesPlayer;
 
         public int Damage => damage;
 
@@ -39,6 +43,8 @@ namespace Runtime.Health
 
             if (health == null)
                 return;
+
+            OnEnemyDamagesPlayer?.Invoke();
 
             switch (targetDimension)
             {
