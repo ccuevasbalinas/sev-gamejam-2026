@@ -165,17 +165,18 @@ namespace Runtime.Character
                 isSliding = true;
                 slideTimer = slideDuration;
                 motor?.SetHeightScale(0.5f);
+                Anim?.SetTrigger("OnSlide");
             }
         }
 
         public void RequestAttack()
         {
-            Anim?.SetTrigger("Attack");
+            Anim?.SetTrigger("OnAttack");
         }
 
         private void OnDimensionSwitched()
         {
-            Anim?.SetTrigger("SwitchDimension");
+            Anim?.SetTrigger("OnSwitchDimension");
         }
 
         public void ResetSystem()

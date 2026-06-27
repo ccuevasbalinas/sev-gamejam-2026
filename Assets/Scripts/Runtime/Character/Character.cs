@@ -45,8 +45,8 @@ namespace Runtime.Character
             bool grounded = motor.IsGrounded;
             if (grounded && !wasGroundedLastTick)
                 OnLanded?.Invoke();
-
             wasGroundedLastTick = grounded;
+            Anim?.SetBool("bGrounded", grounded);
         }
 
         protected virtual void Move(Vector3 direction, float overrideSpeed) => motor?.Move(direction, overrideSpeed);
@@ -56,6 +56,7 @@ namespace Runtime.Character
             if (motor == null || !motor.IsGrounded) return;
             motor.Jump(jumpForce);
             OnJumped?.Invoke();
+            Anim?.SetTrigger("OnJump");
         }
     }
 }
