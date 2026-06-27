@@ -1,7 +1,7 @@
 using Patterns.ServiceLocator;
 using Runtime.GameFlow;
 using Runtime.World;
-using Patterns.ScriptableEvent;
+using UnityEngine;
 
 namespace Runtime.Health
 {
@@ -12,8 +12,8 @@ namespace Runtime.Health
         public int PhysicalHealth { get; private set; }
         public int MirrorHealth { get; private set; }
 
-        public int MaxPhysicalHealth { get; }
-        public int MaxMirrorHealth { get; }
+        public int MaxPhysicalHealth => config.MaxPhysicalHealth;
+        public int MaxMirrorHealth => config.MaxMirrorHealth;
 
         public bool IsDead => PhysicalHealth <= 0 || MirrorHealth <= 0;
 
@@ -107,6 +107,7 @@ namespace Runtime.Health
         {
             PhysicalHealth = MaxPhysicalHealth;
             MirrorHealth = MaxMirrorHealth;
+            Debug.Log($"[PlayerHealth] Physical={MaxPhysicalHealth}, Mirror={MaxMirrorHealth}");
         }
 
         private void CheckDeath()

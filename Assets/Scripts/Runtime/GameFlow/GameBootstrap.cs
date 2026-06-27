@@ -52,6 +52,11 @@ namespace Runtime.GameFlow
             ServiceLocator.Register<IGameTimer>(new GameTimer());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
             ServiceLocator.Register<IPickupCollector>(new PickupCollector(player));
+            Debug.Log(
+                $"[GameBootstrap] Config asset: {playerHealthConfig.name}, " +
+                $"Physical={playerHealthConfig.MaxPhysicalHealth}, " +
+                $"Mirror={playerHealthConfig.MaxMirrorHealth}"
+            );
             ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(playerHealthConfig)); 
             ServiceLocator.Register<IWorldState>(new WorldStateService(worldStateConfig));
             ServiceLocator.Register<IPickupEffectHandler>(new PickupEffectHandler());
