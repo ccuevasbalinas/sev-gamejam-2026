@@ -1,5 +1,4 @@
 using Runtime.Interfaces;
-using UnityEngine;
 
 namespace Runtime.Components
 {
@@ -67,6 +66,14 @@ namespace Runtime.Components
             capsule.center = originalCenter - new Vector3(0f, heightReduction / 2f, 0f);
         }
 
+        public void StopLateralMomentum()
+        {
+          //  currentHorizontalVelocity = new Vector3(0f, currentHorizontalVelocity.y, 0f) 
+            //                            + transform.forward * Vector3.Dot(currentHorizontalVelocity, transform.forward); 
+            currentHorizontalVelocity.x = 0f;
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, currentHorizontalVelocity.z);
+        }
+
         private void FixedUpdate()
         {
             Vector3 desiredVelocity = targetDirection * targetSpeed;
@@ -91,8 +98,8 @@ namespace Runtime.Components
 
             // Reset the per-tick target so Move() must be called again each frame to keep moving
             // (matches your existing pattern from before)
-            targetDirection = Vector3.zero;
-            targetSpeed = 0f;
+            //targetDirection = Vector3.zero;
+            //targetSpeed = 0f;
         }
     }
 }

@@ -115,7 +115,7 @@ namespace Runtime.Character
             float currentX = transform.position.x;
             float diff = laneTransitionTargetX - currentX;
             float distance = Mathf.Abs(diff);
-            if (distance < 0.6f)
+            if (distance < 0.2f)
             {
                 // Arrived: snap exactly onto the rail and stop transitioning.
                 Vector3 snapPos = transform.position;
@@ -123,6 +123,7 @@ namespace Runtime.Character
                 transform.position = snapPos;
 
                 isTransitioningLane = false;
+                motor?.StopLateralMomentum();
                 return Vector3.zero;
             }
 

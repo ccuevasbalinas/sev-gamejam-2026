@@ -16,7 +16,7 @@ namespace Test
         [SerializeField] private float rotationSmoothSpeed = 5f;
 
         private PlayerCharacter playerCharacter;
-        private float currentRotationY;
+        private Quaternion baseRotation;
 
         private void Awake()
         {
@@ -24,7 +24,8 @@ namespace Test
                 playerCharacter = target.GetComponentInParent<PlayerCharacter>()
                                   ?? target.GetComponent<PlayerCharacter>();
 
-            currentRotationY = physicalRotationY;
+            // Fixed base orientation, facing the same way the rig was set up in the editor.
+            baseRotation = transform.rotation;
         }
 
         private void LateUpdate()
@@ -32,19 +33,19 @@ namespace Test
             if (target == null)
                 return;
 
+            // ---- Position: smoothly chase target + offset ----
+            Vector3 desiredPosition = target.position + offset;
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, positionSmoothSpeed * Time.deltaTime);
+
+            // ---- Rotation: smoothly blend toward a fixed tilt per dimension, no LookAt involved ----
             float targetRotationY = physicalRotationY;
             if (playerCharacter != null)
                 targetRotationY = playerCharacter.CurrentDimension == DimensionType.Physical
                     ? physicalRotationY
                     : mirrorRotationY;
 
-            currentRotationY = Mathf.Lerp(currentRotationY, targetRotationY, rotationSmoothSpeed * Time.deltaTime);
-
-            Vector3 desiredPosition = target.position + offset;
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, positionSmoothSpeed * Time.deltaTime);
-
-            transform.LookAt(target);
-            transform.rotation *= Quaternion.Euler(0f, currentRotationY, 0f);
+            Quaternion targetRotation = baseRotation * Quaternion.Euler(0f, targetRotationY, 0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSmoothSpeed * Time.deltaTime);
         }
     }
 }

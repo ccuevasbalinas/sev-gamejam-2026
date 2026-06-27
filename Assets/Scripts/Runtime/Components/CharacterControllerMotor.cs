@@ -48,5 +48,10 @@ namespace Runtime.Components
         {
             throw new System.NotImplementedException();
         }
+
+        public void StopLateralMomentum()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

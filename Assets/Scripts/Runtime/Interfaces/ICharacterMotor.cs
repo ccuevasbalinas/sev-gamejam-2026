@@ -25,5 +25,7 @@ namespace Runtime.Interfaces
         /// keeping the bottom (feet) position fixed in world space.
         /// </summary>
         void SetHeightScale(float scale);
+        
+        void StopLateralMomentum();
     }
 }
