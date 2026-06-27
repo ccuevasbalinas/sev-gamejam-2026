@@ -1,8 +1,9 @@
-using Runtime.Components;
+using UnityEngine;
+
 using Runtime.World;
 using Patterns.ServiceLocator;
 using Runtime.GameFlow;
-using UnityEngine;
+using Runtime.Components;
 
 namespace Runtime.Character
 {
@@ -37,6 +38,8 @@ namespace Runtime.Character
         public DimensionType CurrentDimension => currentDimension;
         public bool IsSliding => isSliding;
 
+        private IGameManager gameManager;
+
         protected override void Awake()
         {
             base.Awake();
@@ -47,8 +50,16 @@ namespace Runtime.Character
             SetMotor(GetComponent<RigidbodyMotor>());
         }
 
+        private void Start()
+        {
+            gameManager = ServiceLocator.Get<IGameManager>();
+        }
+
         protected override void Update()
         {
+            if (gameManager == null || gameManager.CurrentState != GameState.Playing)
+                return;
+
             base.Update();
 
             TickTimers();
