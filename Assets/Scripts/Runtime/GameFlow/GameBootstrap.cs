@@ -52,8 +52,7 @@ namespace Runtime.GameFlow
             ServiceLocator.Register<IGameTimer>(new GameTimer());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
             ServiceLocator.Register<IPickupCollector>(new PickupCollector(player));
-            ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(
-                playerHealthConfig.MaxPhysicalHealth, playerHealthConfig.MaxMirrorHealth)); 
+            ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(playerHealthConfig)); 
             ServiceLocator.Register<IWorldState>(new WorldStateService(worldStateConfig));
             ServiceLocator.Register<IPickupEffectHandler>(new PickupEffectHandler());
 

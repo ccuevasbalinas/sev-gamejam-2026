@@ -1034,6 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3004770613809940785}
+  - component: {fileID: 3361722384640222449}
   m_Layer: 0
   m_Name: PhysicalLifeBar
   m_TagString: Untagged
@@ -1064,6 +1065,21 @@ RectTransform:
   m_AnchoredPosition: {x: -607, y: -376}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3361722384640222449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388105631877206938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714f5700d34b50b4dbd84dd06b62f06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life1: {fileID: 3054017186542467804}
+  life2: {fileID: 7751175617056849465}
+  life3: {fileID: 4067854856255339947}
 --- !u!1 &8848703936320972425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7261758527403058694}
+  - component: {fileID: 756476808243319806}
   m_Layer: 0
   m_Name: MirrorLifeBar
   m_TagString: Untagged
@@ -1103,3 +1120,18 @@ RectTransform:
   m_AnchoredPosition: {x: 666, y: -376}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &756476808243319806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848703936320972425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714f5700d34b50b4dbd84dd06b62f06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life1: {fileID: 1322476766351404804}
+  life2: {fileID: 4717297239403641925}
+  life3: {fileID: 6838563952838234308}
