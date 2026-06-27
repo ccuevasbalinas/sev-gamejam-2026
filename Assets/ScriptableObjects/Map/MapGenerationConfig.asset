@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentPrefabs:
   - {fileID: 6893866738126675966, guid: 87dead57d4abbef4fa299be74c3cebd2, type: 3}
-  initialPoolSizePerSegment: 6
-  initialSegments: 6
+  - {fileID: 7004292103161561333, guid: 41737ee3f85e6cc4e9dec9ce1f902f9d, type: 3}
+  - {fileID: 4875549593100826347, guid: 02406e2ac85d9654b88096c9b80facc0, type: 3}
+  - {fileID: 5383934984891698188, guid: 61c222e27c5f45648b31e0263049dcde, type: 3}
+  initialPoolSizePerSegment: 3
+  initialSegments: 7
   maxActiveSegments: 12
