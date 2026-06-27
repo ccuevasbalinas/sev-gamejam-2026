@@ -10,6 +10,7 @@ namespace Runtime.Pickups
         private readonly int scorePerCoin;
 
         public PickupType Type => PickupType.Coin;
+        public bool IsTimedEffect => false;
 
         public CoinPickupEffect(int coinAmount, int scorePerCoin)
         {

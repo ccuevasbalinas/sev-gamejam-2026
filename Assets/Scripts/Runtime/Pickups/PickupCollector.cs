@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Runtime.Pickups
 {
-    public class PickupCollectorService : IPickupCollector
+    public class PickupCollector : IPickupCollector
     {
         private readonly GameObject player;
 
-        public PickupCollectorService(GameObject player)
+        public PickupCollector(GameObject player)
         {
             this.player = player;
         }

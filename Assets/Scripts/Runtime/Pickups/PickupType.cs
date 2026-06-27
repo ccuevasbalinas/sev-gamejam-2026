@@ -3,9 +3,13 @@ namespace Runtime.Pickups
     public enum PickupType
     {
         Coin,
-        Score,
-        Heal,
+        SpeedUp,
+        SpeedDown,
         Shield,
-        SpeedBoost
+        ScoreMultiplier,
+        Destroyer,
+        LifeInverter,
+        WorldSwitchFreeze,
+        AttackFreeze
     }
 }

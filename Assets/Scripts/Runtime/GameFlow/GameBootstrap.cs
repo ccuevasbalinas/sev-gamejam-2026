@@ -51,10 +51,11 @@ namespace Runtime.GameFlow
             ServiceLocator.Register<IScoreService>(new ScoreService());
             ServiceLocator.Register<IGameTimerService>(new GameTimerService());
             ServiceLocator.Register<IApplicationService>(new ApplicationService());
-            ServiceLocator.Register<IPickupCollector>(new PickupCollectorService(player));
+            ServiceLocator.Register<IPickupCollector>(new PickupCollector(player));
             ServiceLocator.Register<IPlayerHealth>(new PlayerHealth(
                 playerHealthConfig.MaxPhysicalHealth, playerHealthConfig.MaxMirrorHealth)); 
             ServiceLocator.Register<IWorldState>(new WorldStateService(worldStateConfig));
+            ServiceLocator.Register<IPickupEffectHandler>(new PickupEffectHandler());
 
             List<IResettableGameSystem> systems = GetResettableSystems();
 

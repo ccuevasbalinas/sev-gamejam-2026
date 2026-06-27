@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd9b9c1998d7204fa8a1a1042df8f59, type: 3}
-  m_Name: CoinPickupConfig
+  m_Name: DestroyerPickupConfig
   m_EditorClassIdentifier: 
-  pickupType: 0
+  pickupType: 5
   scoreAmount: 10
   coinAmount: 1
   duration: 5
-  destroyWorldObjectsEvent: {fileID: 0}
+  destroyWorldObjectsEvent: {fileID: 11400000, guid: 5573d633dcf4d614f8f45b7e6cc62c2e, type: 2}

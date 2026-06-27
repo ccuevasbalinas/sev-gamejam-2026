@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6748536979326022087}
   - component: {fileID: 6159586773544514353}
   - component: {fileID: 8226243457708488987}
+  - component: {fileID: 2285298841784951945}
   m_Layer: 0
   m_Name: CHAR_Enemy_
   m_TagString: Untagged
@@ -69,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968a91d21b92d31498bc5af04887a671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
 --- !u!114 &6159586773544514353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableEvent: {fileID: 11400000, guid: 309c977a9159577488c5a09ee8b13f08, type: 2}
+  <OnEventRaised>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2285298841784951945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278642417263581491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea4feeb6a1d66b468ea27a4d03a6158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableEvent: {fileID: 11400000, guid: 5573d633dcf4d614f8f45b7e6cc62c2e, type: 2}
   <OnEventRaised>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

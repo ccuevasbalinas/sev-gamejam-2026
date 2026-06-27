@@ -4,6 +4,7 @@ using Runtime.Menu;
 using Runtime.Score;
 using Runtime.Timer;
 using Runtime.World;
+using Runtime.Pickups;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -74,6 +75,7 @@ namespace Runtime.GameFlow
                 return;
 
             ServiceLocator.Get<IGameTimerService>()?.Tick(deltaTime);
+            ServiceLocator.Get<IPickupEffectHandler>()?.Tick(deltaTime);
         }
 
         private void ResetGameplay()

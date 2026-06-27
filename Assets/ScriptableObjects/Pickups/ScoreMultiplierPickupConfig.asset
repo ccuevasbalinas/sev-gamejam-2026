@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd9b9c1998d7204fa8a1a1042df8f59, type: 3}
-  m_Name: CoinPickupConfig
+  m_Name: ScoreMultiplierPickupConfig
   m_EditorClassIdentifier: 
-  pickupType: 0
+  pickupType: 4
   scoreAmount: 10
   coinAmount: 1
   duration: 5
