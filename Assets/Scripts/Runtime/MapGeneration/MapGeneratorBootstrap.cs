@@ -1,10 +1,10 @@
 using UnityEngine;
-
 using Patterns.ServiceLocator;
+using Runtime.GameFlow;
 
 namespace Runtime.MapGeneration
 {
-    public class MapGeneratorBootstrap : MonoBehaviour
+    public class MapGeneratorBootstrap : MonoBehaviour, IResettableGameSystem
     {
         [Header("Config")]
         [SerializeField] private MapGenerationConfig config;
@@ -17,19 +17,14 @@ namespace Runtime.MapGeneration
 
         private void Awake()
         {
-            if (config == null)
-            {
-                Debug.LogError("[MapGeneratorBootstrap] Map Configuration not defined!");
-            }
-
             mapGeneratorService = new MapGeneratorService(config, segmentsParent, firstSpawnPoint);
 
             ServiceLocator.Register<IMapGeneratorService>(mapGeneratorService);
         }
 
-        private void Start()
+        public void ResetSystem()
         {
-            mapGeneratorService.GenerateInitialMap();
+            mapGeneratorService.ResetMap();
         }
 
         private void OnDestroy()
