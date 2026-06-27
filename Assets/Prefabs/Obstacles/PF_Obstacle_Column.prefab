@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7313688545818156316}
   - component: {fileID: 2239877751466747823}
   m_Layer: 0
-  m_Name: PF_Obstacle
+  m_Name: PF_Obstacle_Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
