@@ -67,7 +67,7 @@ namespace Runtime.UI
         {
             IScoreService score = ServiceLocator.Get<IScoreService>();
             IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
-            IHealthService health = ServiceLocator.Get<IHealthService>();
+            IPlayerHealthService health = ServiceLocator.Get<IPlayerHealthService>();
 
             if (score != null)
             {
@@ -77,7 +77,8 @@ namespace Runtime.UI
             if (health != null)
             {
                 healthText.text =
-                    $"Health: {health.CurrentHealth}/{health.MaxHealth}";
+                    $"Physical: {health.PhysicalHealth}/{health.MaxPhysicalHealth} | " +
+                    $"Mirror: {health.MirrorHealth}/{health.MaxMirrorHealth}";
             }
 
             if (timer != null)

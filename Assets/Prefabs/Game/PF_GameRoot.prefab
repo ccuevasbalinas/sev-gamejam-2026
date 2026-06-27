@@ -118,6 +118,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2939549034443564321}
     - target: {fileID: 3354729530366037004, guid: 41df6a79ca25bec4eb9ce71fe9f73b48, type: 3}
+      propertyPath: playerHealthConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 236e61b3c3fd4bd47889848a31ed6ddf, type: 2}
+    - target: {fileID: 3354729530366037004, guid: 41df6a79ca25bec4eb9ce71fe9f73b48, type: 3}
       propertyPath: 'resettableSystems.Array.data[0]'
       value: 
       objectReference: {fileID: 1147948170603556961}

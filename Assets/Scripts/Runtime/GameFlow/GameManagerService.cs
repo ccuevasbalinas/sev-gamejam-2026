@@ -3,6 +3,7 @@ using Runtime.Health;
 using Runtime.Menu;
 using Runtime.Score;
 using Runtime.Timer;
+using Runtime.World;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,7 +79,8 @@ namespace Runtime.GameFlow
         private void ResetGameplay()
         {
             ServiceLocator.Get<IScoreService>()?.Reset();
-            ServiceLocator.Get<IHealthService>()?.Reset();
+            ServiceLocator.Get<IPlayerHealthService>()?.ResetHealth();
+            ServiceLocator.Get<IWorldState>()?.ResetDimension();
 
             IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
 

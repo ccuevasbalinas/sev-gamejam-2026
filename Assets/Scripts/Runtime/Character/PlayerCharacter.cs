@@ -1,10 +1,12 @@
 using Runtime.Components;
-using Runtime.Enumerators;
+using Runtime.World;
+using Patterns.ServiceLocator;
+using Runtime.GameFlow;
 using UnityEngine;
 
 namespace Runtime.Character
 {
-    public class PlayerCharacter : Character
+    public class PlayerCharacter : Character, IResettableGameSystem
     {
         [Header("Dimension Switching / Rails")] [SerializeField]
         private float dimensionSwitchCooldown = 0.3f;
@@ -21,20 +23,27 @@ namespace Runtime.Character
 
         [SerializeField] private bool autoRunEnabled = true;
 
-        private DimensionTarget currentDimension = DimensionTarget.Physical;
+        private DimensionType currentDimension = DimensionType.Physical;
         private float switchCooldownTimer;
         private float slideTimer;
         private bool isSliding;
 
         private bool isTransitioningLane;
         private float laneTransitionTargetX;
-        
-        public DimensionTarget CurrentDimension => currentDimension;
+
+        private Vector3 initialPosition;
+        private Quaternion initialRotation;
+
+        public DimensionType CurrentDimension => currentDimension;
         public bool IsSliding => isSliding;
 
         protected override void Awake()
         {
             base.Awake();
+            
+            initialPosition = transform.position;
+            initialRotation = transform.rotation;
+
             SetMotor(GetComponent<RigidbodyMotor>());
         }
 
@@ -115,16 +124,23 @@ namespace Runtime.Character
         }
         // ---- Called by PlayerInputHandler ----
 
-        public void RequestSwitchDimension(DimensionTarget DesiredDimension)
+        public void RequestSwitchDimension(DimensionType desiredDimension)
         {
-            if (switchCooldownTimer > 0f) return;
+            if (switchCooldownTimer > 0f)
+                return;
 
-            if (currentDimension == DesiredDimension) return;
+            if (currentDimension == desiredDimension)
+                return;
 
-            currentDimension = DesiredDimension;
-            laneTransitionTargetX = DesiredDimension == DimensionTarget.Physical ? physicalRailX : mirrorRailX;
+            currentDimension = desiredDimension;
+
+            laneTransitionTargetX = desiredDimension == DimensionType.Physical ? physicalRailX : mirrorRailX;
+
             isTransitioningLane = true;
             switchCooldownTimer = dimensionSwitchCooldown;
+
+            ServiceLocator.Get<IWorldState>()?.SetDimension(desiredDimension);
+
             OnDimensionSwitched();
         }
 
@@ -149,6 +165,24 @@ namespace Runtime.Character
         private void OnDimensionSwitched()
         {
             Anim?.SetTrigger("SwitchDimension");
+        }
+
+        public void ResetSystem()
+        {
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+
+            currentDimension = DimensionType.Physical;
+            laneTransitionTargetX = physicalRailX;
+
+            isTransitioningLane = false;
+            isSliding = false;
+            switchCooldownTimer = 0f;
+            slideTimer = 0f;
+
+            motor?.SetHeightScale(1f);
+
+            ServiceLocator.Get<IWorldState>()?.SetDimension(DimensionType.Physical);
         }
     }
 }

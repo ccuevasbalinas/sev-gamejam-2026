@@ -1,4 +1,4 @@
-namespace Runtime.Enumerators
+namespace Runtime.World
 {
     public enum DimensionTarget
     {

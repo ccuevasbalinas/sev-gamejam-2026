@@ -1,19 +1,19 @@
-using Patterns.ServiceLocator;
-using Runtime.GameFlow;
+using UnityEngine;
 
 namespace Runtime.Health
 {
-    public class HealthService : IHealthService
+    public class EnemyHealth : MonoBehaviour, IHealthService
     {
-        public int CurrentHealth { get; private set; }
-        public int MaxHealth { get; private set; }
+        [Header("Health")]
+        [SerializeField] private int maxHealth = 3;
 
+        public int CurrentHealth { get; private set; }
+        public int MaxHealth => maxHealth;
         public bool IsDead => CurrentHealth <= 0;
 
-        public HealthService(int maxHealth)
+        private void Awake()
         {
-            MaxHealth = maxHealth;
-            CurrentHealth = maxHealth;
+            ResetHealth();
         }
 
         public void Damage(int amount)
@@ -26,8 +26,7 @@ namespace Runtime.Health
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
-
-                ServiceLocator.Get<IGameManagerService>()?.FinishGame();
+                Die();
             }
         }
 
@@ -44,7 +43,12 @@ namespace Runtime.Health
 
         public void ResetHealth()
         {
-            CurrentHealth = MaxHealth;
+            CurrentHealth = maxHealth;
+        }
+
+        private void Die()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

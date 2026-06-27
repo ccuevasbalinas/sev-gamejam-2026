@@ -1,4 +1,4 @@
-using Runtime.Enumerators;
+using Runtime.World;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,10 +49,8 @@ namespace Runtime.Character
 
         private void OnAttack(InputAction.CallbackContext context) => player.RequestAttack();
 
-        private void OnTransitionMirror(InputAction.CallbackContext context) =>
-            player.RequestSwitchDimension(DimensionTarget.Mirror);
+        private void OnTransitionMirror(InputAction.CallbackContext context) => player.RequestSwitchDimension(DimensionType.Mirror);
 
-        private void OnTransitionPhysical(InputAction.CallbackContext context) =>
-            player.RequestSwitchDimension(DimensionTarget.Physical);
+        private void OnTransitionPhysical(InputAction.CallbackContext context) => player.RequestSwitchDimension(DimensionType.Physical);
     }
 }
