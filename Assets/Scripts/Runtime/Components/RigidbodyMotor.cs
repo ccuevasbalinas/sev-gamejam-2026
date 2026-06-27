@@ -54,7 +54,7 @@ namespace Runtime.Components
 
         public void Tick(float deltaTime)
         {
-            IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance + 1f, groundMask);
+            //IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance + 1f, groundMask);
             //Debug.DrawRay(transform.position, Vector3.down * (groundCheckDistance + 1f), IsGrounded ? Color.green : Color.red);
         }
 
@@ -72,19 +72,19 @@ namespace Runtime.Components
             Vector3 desiredVelocity = targetDirection * targetSpeed;
             bool hasInput = targetDirection.sqrMagnitude > 0f;
             float rate = hasInput ? acceleration : deceleration;
-
+            
+            IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance + 1f, groundMask);   
+            
             currentHorizontalVelocity = Vector3.MoveTowards(
                 currentHorizontalVelocity,
                 desiredVelocity,
                 rate * Time.fixedDeltaTime
             );
-
-            Vector3 targetPos = rb.position + currentHorizontalVelocity * Time.fixedDeltaTime;
-            rb.MovePosition(targetPos);
+            
+            rb.linearVelocity = new Vector3(currentHorizontalVelocity.x, rb.linearVelocity.y, currentHorizontalVelocity.z);
 
             if (jumpQueued)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
                 rb.AddForce(Vector3.up * queuedJumpForce, ForceMode.Impulse);
                 jumpQueued = false;
             }

@@ -4,7 +4,7 @@ using Runtime.World;
 
 namespace Runtime.Health
 {
-    public class PlayerHealthService : IPlayerHealthService
+    public class PlayerHealth : IPlayerHealth
     {
         public int PhysicalHealth { get; private set; }
         public int MirrorHealth { get; private set; }
@@ -12,9 +12,9 @@ namespace Runtime.Health
         public int MaxPhysicalHealth { get; }
         public int MaxMirrorHealth { get; }
 
-        public bool IsDead => PhysicalHealth <= 0 && MirrorHealth <= 0;
+        public bool IsDead => PhysicalHealth <= 0 || MirrorHealth <= 0;
 
-        public PlayerHealthService(int maxPhysicalHealth, int maxMirrorHealth)
+        public PlayerHealth(int maxPhysicalHealth, int maxMirrorHealth)
         {
             MaxPhysicalHealth = maxPhysicalHealth;
             MaxMirrorHealth = maxMirrorHealth;
@@ -22,39 +22,46 @@ namespace Runtime.Health
             ResetHealth();
         }
 
-        public void Damage(DimensionTarget target, int amount)
+        public void Damage(DimensionType dimension, int amount)
         {
             if (amount <= 0 || IsDead)
                 return;
 
-            switch (target)
+            switch (dimension)
             {
-                case DimensionTarget.Physical:
+                case DimensionType.Physical:
                     PhysicalHealth -= amount;
                     if (PhysicalHealth < 0)
                         PhysicalHealth = 0;
                     break;
 
-                case DimensionTarget.Mirror:
+                case DimensionType.Mirror:
                     MirrorHealth -= amount;
-                    if (MirrorHealth < 0)
-                        MirrorHealth = 0;
-                    break;
-
-                case DimensionTarget.Both:
-                    PhysicalHealth -= amount;
-                    MirrorHealth -= amount;
-
-                    if (PhysicalHealth < 0)
-                        PhysicalHealth = 0;
-
                     if (MirrorHealth < 0)
                         MirrorHealth = 0;
                     break;
             }
 
+            CheckDeath();
+        }
+
+        public void Kill(DimensionType dimension)
+        {
             if (IsDead)
-                ServiceLocator.Get<IGameManager>()?.FinishGame();
+                return;
+
+            switch (dimension)
+            {
+                case DimensionType.Physical:
+                    PhysicalHealth = 0;
+                    break;
+
+                case DimensionType.Mirror:
+                    MirrorHealth = 0;
+                    break;
+            }
+
+            CheckDeath();
         }
 
         public void Heal(DimensionTarget target, int amount)
@@ -93,6 +100,14 @@ namespace Runtime.Health
         {
             PhysicalHealth = MaxPhysicalHealth;
             MirrorHealth = MaxMirrorHealth;
+        }
+
+        private void CheckDeath()
+        {
+            if (!IsDead)
+                return;
+
+            ServiceLocator.Get<IGameManager>()?.FinishGame();
         }
     }
 }

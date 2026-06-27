@@ -2,7 +2,7 @@ using Runtime.World;
 
 namespace Runtime.Health
 {
-    public interface IPlayerHealthService
+    public interface IPlayerHealth
     {
         int PhysicalHealth { get; }
         int MirrorHealth { get; }
@@ -12,7 +12,8 @@ namespace Runtime.Health
 
         bool IsDead { get; }
 
-        void Damage(DimensionTarget target, int amount);
+        void Damage(DimensionType dimension, int amount);
+        void Kill(DimensionType dimension);
         void Heal(DimensionTarget target, int amount);
         void ResetHealth();
     }

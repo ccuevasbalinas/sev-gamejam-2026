@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace Runtime.Health
 {
-    public class EnemyHealth : MonoBehaviour, IHealthService
+    public class EnemyHealth : MonoBehaviour, IHealth
     {
-        [Header("Health")]
-        [SerializeField] private int maxHealth = 3;
-
+        private int maxHealth = 1;
         public int CurrentHealth { get; private set; }
         public int MaxHealth => maxHealth;
         public bool IsDead => CurrentHealth <= 0;

@@ -79,7 +79,7 @@ namespace Runtime.GameFlow
         private void ResetGameplay()
         {
             ServiceLocator.Get<IScoreService>()?.Reset();
-            ServiceLocator.Get<IPlayerHealthService>()?.ResetHealth();
+            ServiceLocator.Get<IPlayerHealth>()?.ResetHealth();
             ServiceLocator.Get<IWorldState>()?.ResetDimension();
 
             IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
