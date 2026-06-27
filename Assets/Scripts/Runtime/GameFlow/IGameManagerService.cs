@@ -5,12 +5,12 @@ namespace Runtime.GameFlow
         GameState CurrentState { get; }
         GameStatistics LastStatistics { get; }
 
+        void GoToMainMenu();
         void StartGame();
         void FinishGame();
         void RestartGame();
-        void GoToMainMenu();
-        void GoToResults();
         void QuitGame();
+
         void Tick(float deltaTime);
     }
 }

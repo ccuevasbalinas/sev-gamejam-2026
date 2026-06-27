@@ -1,74 +1,65 @@
-using UnityEngine;
 using Patterns.ServiceLocator;
+using Runtime.Health;
+using Runtime.Menu;
 using Runtime.Score;
 using Runtime.Timer;
-using Runtime.Menu;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Runtime.GameFlow
 {
     public class GameManagerService : IGameManagerService
     {
-        private readonly GameConfig config;
+        private readonly IReadOnlyList<IResettableGameSystem> resettableSystems;
 
         public GameState CurrentState { get; private set; }
         public GameStatistics LastStatistics { get; private set; }
 
-        public GameManagerService(GameConfig config)
+        public GameManagerService(IReadOnlyList<IResettableGameSystem> resettableSystems)
         {
-            this.config = config;
-            CurrentState = GameState.None;
+            this.resettableSystems = resettableSystems;
+            CurrentState = GameState.Boot;
+        }
+
+        public void GoToMainMenu()
+        {
+            CurrentState = GameState.MainMenu;
+            Time.timeScale = 1f;
         }
 
         public void StartGame()
         {
+            ResetGameplay();
+
             CurrentState = GameState.Playing;
+            Time.timeScale = 1f;
 
-            ServiceLocator.Get<IScoreService>()?.Reset();
-
-            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
-
-            timer?.Reset();
-            timer?.Start();
+            ServiceLocator.Get<IGameTimerService>()?.Start();
         }
 
         public void FinishGame()
         {
-            CurrentState = GameState.GameOver;
+            if (CurrentState != GameState.Playing)
+                return;
 
-            IGameTimerService timer =
-                ServiceLocator.Get<IGameTimerService>();
+            CurrentState = GameState.Results;
+
+            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
+
+            IScoreService score = ServiceLocator.Get<IScoreService>();
 
             timer?.Stop();
-
-            IScoreService score =
-                ServiceLocator.Get<IScoreService>();
 
             LastStatistics = new GameStatistics(
                 score != null ? score.TotalScore : 0,
                 score != null ? score.TotalCoins : 0,
                 timer != null ? timer.ElapsedTime : 0f
             );
-
-            GoToResults();
         }
 
         public void RestartGame()
         {
-            ServiceLocator.Get<ISceneLoaderService>()?.LoadScene(config.GameplaySceneName);
-        }
-
-        public void GoToMainMenu()
-        {
-            CurrentState = GameState.MainMenu;
-
-            ServiceLocator.Get<ISceneLoaderService>()?.LoadScene(config.MainMenuSceneName);
-        }
-
-        public void GoToResults()
-        {
-            CurrentState = GameState.Results;
-
-            ServiceLocator.Get<ISceneLoaderService>()?.LoadScene(config.ResultsSceneName);
+            StartGame();
         }
 
         public void QuitGame()
@@ -82,6 +73,21 @@ namespace Runtime.GameFlow
                 return;
 
             ServiceLocator.Get<IGameTimerService>()?.Tick(deltaTime);
+        }
+
+        private void ResetGameplay()
+        {
+            ServiceLocator.Get<IScoreService>()?.Reset();
+            ServiceLocator.Get<IHealthService>()?.Reset();
+
+            IGameTimerService timer = ServiceLocator.Get<IGameTimerService>();
+
+            timer?.Reset();
+
+            foreach (IResettableGameSystem system in resettableSystems)
+            {
+                system.ResetSystem();
+            }   
         }
     }
 }

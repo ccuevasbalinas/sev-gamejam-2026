@@ -9,6 +9,7 @@ namespace Runtime.MapGeneration
     {
         private readonly MapGenerationConfig config;
         private readonly Transform parent;
+        private readonly Transform firstSpawnPoint;
 
         private readonly List<ObjectPool<MapSegment>> pools = new();
         private readonly List<MapSegment> activeSegments = new();
@@ -19,6 +20,9 @@ namespace Runtime.MapGeneration
         {
             this.config = config;
             this.parent = parent;
+            nextSpawnPoint = firstSpawnPoint;
+
+            this.firstSpawnPoint = firstSpawnPoint;
             nextSpawnPoint = firstSpawnPoint;
 
             CreatePools();
@@ -64,6 +68,14 @@ namespace Runtime.MapGeneration
                 segment.gameObject.SetActive(false);
 
             activeSegments.Clear();
+        }
+
+        public void ResetMap()
+        {
+            Clear();
+            nextSpawnPoint = firstSpawnPoint;
+
+            GenerateInitialMap();
         }
 
         private void TrimOldSegments()
