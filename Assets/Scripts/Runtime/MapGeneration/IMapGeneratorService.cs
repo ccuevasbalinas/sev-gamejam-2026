@@ -4,6 +4,7 @@ namespace Runtime.MapGeneration
     {
         void GenerateInitialMap();
         void SpawnSegment();
+        void ResetMap();
         void Clear();
     }
 }

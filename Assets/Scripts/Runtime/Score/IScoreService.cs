@@ -7,6 +7,7 @@ namespace Runtime.Score
 
         void AddScore(int amount);
         void AddCoins(int amount);
+        void AddCoinWithScore(int coinAmount, int scorePerCoin);
         void Reset();
     }
 }

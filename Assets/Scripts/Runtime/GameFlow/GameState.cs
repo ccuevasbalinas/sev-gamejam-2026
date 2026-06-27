@@ -2,11 +2,9 @@ namespace Runtime.GameFlow
 {
     public enum GameState
     {
-        None,
+        Boot,
         MainMenu,
         Playing,
-        Paused,
-        GameOver,
         Results
     }
 }

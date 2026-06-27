@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Runtime.Score
 {
     public class ScoreService : IScoreService
@@ -21,6 +19,12 @@ namespace Runtime.Score
                 return;
 
             TotalCoins += amount;
+        }
+
+        public void AddCoinWithScore(int coinAmount, int scorePerCoin)
+        {
+            AddCoins(coinAmount);
+            AddScore(coinAmount * scorePerCoin);
         }
 
         public void Reset()
