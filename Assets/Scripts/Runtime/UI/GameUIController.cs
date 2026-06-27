@@ -17,12 +17,12 @@ namespace Runtime.UI
 
         [Header("HUD")]
         [SerializeField] private TMP_Text scoreText;
-        [SerializeField] private TMP_Text healthText;
+        [SerializeField] private LifeBarUI healthPhysical;
+        [SerializeField] private LifeBarUI healthMirror;
         [SerializeField] private TMP_Text timeText;
 
         [Header("Results")]
         [SerializeField] private TMP_Text finalScoreText;
-        [SerializeField] private TMP_Text finalCoinsText;
         [SerializeField] private TMP_Text finalTimeText;
 
         private IGameManager gameManager;
@@ -76,9 +76,8 @@ namespace Runtime.UI
 
             if (health != null)
             {
-                healthText.text =
-                    $"Physical: {health.PhysicalHealth}/{health.MaxPhysicalHealth} | " +
-                    $"Mirror: {health.MirrorHealth}/{health.MaxMirrorHealth}";
+                healthPhysical.SetLife(health.PhysicalHealth);
+                healthMirror.SetLife(health.MirrorHealth);
             }
 
             if (timer != null)
@@ -95,7 +94,6 @@ namespace Runtime.UI
                 return;
 
             finalScoreText.text = $"Score: {stats.Score}";
-            finalCoinsText.text = $"Coins: {stats.Coins}";
             finalTimeText.text = $"Time: {stats.Time:F1}s";
         }
 
