@@ -87,54 +87,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5814116411532313910}
-    - target: {fileID: 841420036297402335, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: offset.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 841420036297402335, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: offset.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 841420036297402335, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: positionSmoothSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 841420036297402335, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: rotationSmoothSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248630137232782901, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360303862945678837, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
-      propertyPath: field of view
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2003361064647123544, guid: f4df1be68faa65b408f42f8b1d266590, type: 3}
       propertyPath: m_Name
       value: PF_Game_Camera
@@ -165,14 +117,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2939549034443564321}
-    - target: {fileID: 3354729530366037004, guid: 41df6a79ca25bec4eb9ce71fe9f73b48, type: 3}
-      propertyPath: worldStateConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 86f03327f68a78c4bb5ad7536f6f42dd, type: 2}
-    - target: {fileID: 3354729530366037004, guid: 41df6a79ca25bec4eb9ce71fe9f73b48, type: 3}
-      propertyPath: playerHealthConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 236e61b3c3fd4bd47889848a31ed6ddf, type: 2}
     - target: {fileID: 3354729530366037004, guid: 41df6a79ca25bec4eb9ce71fe9f73b48, type: 3}
       propertyPath: 'resettableSystems.Array.data[0]'
       value: 
@@ -239,30 +183,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7535421710405155310}
     m_Modifications:
-    - target: {fileID: 849272841061513275, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 653d8bf040c0147489acfa6070fef6f2, type: 2}
-    - target: {fileID: 1244582387760191605, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 6975077865636595431}
-    - target: {fileID: 1244582387760191605, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: mirrorRailX
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244582387760191605, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: physicalRailX
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244582387760191605, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: slideDuration
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244582387760191605, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-      propertyPath: slideSpeedMultiplier
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 4299435061189098474, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -307,9 +227,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Game_Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4574907574918839389, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-    - {fileID: 1701337706676769948, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -322,11 +240,6 @@ GameObject:
 --- !u!4 &5814116411532313910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299435061189098474, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
-  m_PrefabInstance: {fileID: 7711655126631333596}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6975077865636595431 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 849272841061513275, guid: 976acfd938fdf53499b299327fd5469d, type: 3}
   m_PrefabInstance: {fileID: 7711655126631333596}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8809296424526767785 stripped
@@ -348,10 +261,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7535421710405155310}
     m_Modifications:
-    - target: {fileID: 660063980317228475, guid: f07b77557685d914dadfcbb4b15ff35c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 3927976447421022968, guid: f07b77557685d914dadfcbb4b15ff35c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33840eacf3c913f41a716e8756be5e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: a464564c98a3f1043ac3e95914e2382e, type: 2}
   player: {fileID: 0}
   resettableSystems:
   - {fileID: 0}
   - {fileID: 0}
+  playerHealthConfig: {fileID: 11400000, guid: 236e61b3c3fd4bd47889848a31ed6ddf, type: 2}
+  worldStateConfig: {fileID: 11400000, guid: 86f03327f68a78c4bb5ad7536f6f42dd, type: 2}
