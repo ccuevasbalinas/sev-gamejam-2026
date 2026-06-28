@@ -57,7 +57,7 @@ This project was created during the **Sevilla Game Jam 2026**, a game developmen
 | **Alonso Martínez** | Animation & Rigging | [LinkedIn](https://www.linkedin.com/in/alonsomartinezjames/) |
 | **Gonzalo Liñán** | Game Design & Programming | [LinkedIn](https://www.linkedin.com/in/gonzalo-li%C3%B1an-aldana/) |
 | **Noa Martín** | 2D & 3D Artist | [LinkTree](https://linktr.ee/Nonah_Lynx) |
-| **Alejandro Campora** | 2D & 3D Artist | [LinkedIn]() |
+| **Alejandro Campora** | 2D & 3D Artist | [LinkedIn](https://www.linkedin.com/in/alejandro-campora-garcia-142a89419/) |
 
 ---
 
