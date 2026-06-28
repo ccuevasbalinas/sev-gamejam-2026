@@ -1964,6 +1964,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Obstacle_Jail
       objectReference: {fileID: 0}
+    - target: {fileID: 2767848501201670495, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767848501201670495, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757437846586945219, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757437846586945219, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5538340230203962026, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9
@@ -2208,9 +2224,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2837901174822682325}
     m_Modifications:
+    - target: {fileID: 2543481665919088665, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.39
+      objectReference: {fileID: 0}
     - target: {fileID: 2565279442960021042, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
       propertyPath: m_Name
       value: PF_Obstacle_Jail (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767848501201670495, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767848501201670495, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767848501201670495, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5538340230203962026, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
       propertyPath: m_LocalPosition.x

@@ -525,11 +525,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_StopNaN
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_Dithering
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4848696541774993360, guid: b5ffbf34ea0c01242892bfbe4e1b9839, type: 3}
       propertyPath: m_Antialiasing
