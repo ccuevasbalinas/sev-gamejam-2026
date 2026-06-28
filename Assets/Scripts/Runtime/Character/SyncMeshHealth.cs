@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 using Patterns.ServiceLocator;
@@ -8,57 +9,79 @@ namespace Runtime.Character
 {
     public class SyncMeshHealth : MonoBehaviour
     {
-        [Header("Physical World")]
-        [SerializeField] private GameObject headObjectPhysical;
-        [SerializeField] private GameObject chestObjectPhysical;
+        [Header("Mesh parts")]
+        [SerializeField] private GameObject headObject;
+        [SerializeField] private GameObject chestObject;
 
-        [Header("Mirror World")]
-        [SerializeField] private GameObject headObjectMirror;
-        [SerializeField] private GameObject chestObjectMirror;
+        [Header("Animation")]
+        [SerializeField] private Animator animator;
+        [SerializeField] private string healthChangedTrigger = "OnHit";
+        [SerializeField] private float syncDelay = 0.5f;
 
-        IWorldState worldState;
-        IPlayerHealth playerHealth;
+        private IWorldState worldState;
+        private IPlayerHealth playerHealth;
 
-        private int currentPlayerHealth = 1;
+        private Coroutine syncCoroutine;
+
+        private void Awake()
+        {
+            if (animator == null)
+                animator = GetComponentInChildren<Animator>();
+        }
 
         private void Start()
         {
             worldState = ServiceLocator.Get<IWorldState>();
             playerHealth = ServiceLocator.Get<IPlayerHealth>();
+
+            SyncMeshWithHealth();
         }
 
         public void OnHealthChanged()
         {
-            SyncMeshWithHealth();
+            RequestDelayedSync();
         }
 
         public void OnDimensionChanged()
         {
+            RequestDelayedSync();
+        }
+
+        private void RequestDelayedSync()
+        {
+            if (syncCoroutine != null)
+                StopCoroutine(syncCoroutine);
+
+            syncCoroutine = StartCoroutine(SyncAfterAnimation());
+        }
+
+        private IEnumerator SyncAfterAnimation()
+        {
+            if (animator != null && !string.IsNullOrEmpty(healthChangedTrigger))
+                animator.SetTrigger(healthChangedTrigger);
+
+            yield return new WaitForSeconds(syncDelay);
+
             SyncMeshWithHealth();
+
+            syncCoroutine = null;
         }
 
         private void SyncMeshWithHealth()
         {
-            if (worldState.CurrentDimension == DimensionType.Physical)
-            {
-                currentPlayerHealth = playerHealth.PhysicalHealth;
+            if (worldState == null || playerHealth == null)
+                return;
 
-                if (headObjectPhysical != null)
-                    headObjectPhysical.SetActive(currentPlayerHealth == 3);
+            int currentPlayerHealth =
+                worldState.CurrentDimension == DimensionType.Physical
+                    ? playerHealth.PhysicalHealth
+                    : playerHealth.MirrorHealth;
 
-                if (chestObjectPhysical != null)
-                    chestObjectPhysical.SetActive(currentPlayerHealth >= 2);
-            } 
-            else
-            {
-                currentPlayerHealth = playerHealth.MirrorHealth;
+            if (headObject != null)
+                headObject.SetActive(currentPlayerHealth == 3);
 
-                if (headObjectMirror != null)
-                    headObjectMirror.SetActive(currentPlayerHealth == 3);
-
-                if (chestObjectMirror != null)
-                    chestObjectMirror.SetActive(currentPlayerHealth >= 2);
-            }
+            if (chestObject != null)
+                chestObject.SetActive(currentPlayerHealth >= 2);
         }
     }
 }

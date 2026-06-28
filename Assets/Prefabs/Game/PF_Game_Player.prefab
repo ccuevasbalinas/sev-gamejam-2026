@@ -205,10 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2237aa1a73b5e41a5dcb8b7cd9b12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headObjectPhysical: {fileID: 0}
-  chestObjectPhysical: {fileID: 0}
-  headObjectMirror: {fileID: 0}
-  chestObjectMirror: {fileID: 0}
+  headObject: {fileID: 6295328333332445729}
+  chestObject: {fileID: 1871621673603762147}
+  animator: {fileID: 849272841061513275}
+  healthChangedTrigger: OnHit
+  syncDelay: 0.5
 --- !u!114 &2818392691130152298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,6 +916,7 @@ MonoBehaviour:
   railSwitchSpeed: 8
   slideSpeedMultiplier: 1.2
   slideDuration: 0.6
+  slideCooldown: 0.2
   forwardSpeed: 10
   autoRunEnabled: 1
 --- !u!114 &1768882071415672513
@@ -1501,6 +1503,16 @@ PrefabInstance:
 --- !u!95 &849272841061513275 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6291328564238667408, guid: e09f3a4adac830f4f93d650c0937d29d, type: 3}
+  m_PrefabInstance: {fileID: 6667140376558401195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1871621673603762147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007762163406631240, guid: e09f3a4adac830f4f93d650c0937d29d, type: 3}
+  m_PrefabInstance: {fileID: 6667140376558401195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6295328333332445729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 854293162566749322, guid: e09f3a4adac830f4f93d650c0937d29d, type: 3}
   m_PrefabInstance: {fileID: 6667140376558401195}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6712920851880501825 stripped
