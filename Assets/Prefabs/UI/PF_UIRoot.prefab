@@ -254,6 +254,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4907496202348963331}
+    - target: {fileID: 2123226245911960518, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936837326518720969, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
+      propertyPath: m_text
+      value: SKULL DUNGEON
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936837326518720969, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
+      propertyPath: m_margin.x
+      value: -41.811485
+      objectReference: {fileID: 0}
     - target: {fileID: 5237860020289620830, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -364,6 +376,10 @@ PrefabInstance:
     - target: {fileID: 6163370908660690353, guid: 52685f16141ae2c4a966426259cf549c, type: 3}
       propertyPath: m_Name
       value: PF_UI_HUDPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163370908660690353, guid: 52685f16141ae2c4a966426259cf549c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7291793301634927293, guid: 52685f16141ae2c4a966426259cf549c, type: 3}
       propertyPath: m_Pivot.x
@@ -595,6 +611,10 @@ PrefabInstance:
     - target: {fileID: 1803251989861601694, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_Name
       value: PF_UI_ScorePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803251989861601694, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3195363646905929010, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
