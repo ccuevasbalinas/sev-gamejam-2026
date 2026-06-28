@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 5383934984891698188, guid: 61c222e27c5f45648b31e0263049dcde, type: 3}
   initialPoolSizePerSegment: 3
   initialSegments: 7
-  maxActiveSegments: 12
+  maxActiveSegments: 24
