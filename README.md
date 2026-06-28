@@ -49,13 +49,15 @@ This project was created during the **Sevilla Game Jam 2026**, a game developmen
 
 ## Team
 
-| Member               | Role        |
-| -------------------- | ----------- |
-| **Carlos Cuevas**    | Programming |
-| **Alonso Martínez**  | Animation   |
-| **Gonzalo Liñán**    | Game Design |
-| **Noa Martín**       | Artist      |
-| **Alejandro Campora**| Artist      |
+## Team
+
+| Member | Role | LinkedIn |
+|---------|------|----------|
+| **Carlos Cuevas** | Tech Lead & Programming | [LinkedIn](https://www.linkedin.com/in/ccuevasbalinas/) |
+| **Alonso Martínez** | Animation & Rigging | [LinkedIn](https://www.linkedin.com/in/alonsomartinezjames/) |
+| **Gonzalo Liñán** | Game Design & Programming | [LinkedIn](https://www.linkedin.com/in/gonzalo-li%C3%B1an-aldana/) |
+| **Noa Martín** | 2D & 3D Artist | [LinkTree](https://linktr.ee/Nonah_Lynx) |
+| **Alejandro Campora** | 2D & 3D Artist | [LinkedIn]() |
 
 ---
 
