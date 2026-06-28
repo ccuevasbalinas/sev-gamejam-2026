@@ -43,8 +43,6 @@ namespace Runtime.Health
                     break;
             }
 
-            config.OnDamagedEvent?.Raise();
-
             CheckDeath();
         }
 
@@ -63,8 +61,6 @@ namespace Runtime.Health
                     MirrorHealth = 0;
                     break;
             }
-
-            config.OnDamagedEvent?.Raise();
 
             CheckDeath();
         }
@@ -113,8 +109,11 @@ namespace Runtime.Health
         private void CheckDeath()
         {
             if (!IsDead)
+            {
+                config.OnDamagedEvent?.Raise();
                 return;
-
+            }
+                
             config.OnDeathEvent?.Raise();
 
             ServiceLocator.Get<IGameManager>()?.FinishGame();
