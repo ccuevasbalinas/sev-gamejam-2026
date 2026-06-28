@@ -63,7 +63,7 @@ This project was created during the **Sevilla Game Jam 2026**, a game developmen
 
 The latest playable version is available on itch.io:
 
-👉 **https://your-game.itch.io/your-game**
+👉 **https://theoslan.itch.io/skulldungeon**
 
 ---
 
