@@ -1754,18 +1754,6 @@ PrefabInstance:
       value: PF_Obstacle_Axe
       objectReference: {fileID: 0}
     - target: {fileID: 5538340230203962026, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5538340230203962026, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5538340230203962026, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5538340230203962026, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1804,10 +1792,6 @@ PrefabInstance:
     - target: {fileID: 5538340230203962026, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6611557464858466442, guid: 778716dce285a954d94f30bc40394d1f, type: 3}
-      propertyPath: targetDimension
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1961,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5538340230203962026, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5538340230203962026, guid: c42a5d4fefdb2d843b474132da826748, type: 3}
       propertyPath: m_LocalPosition.z
