@@ -246,7 +246,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6773232886496088578}
     m_Modifications:
-    - target: {fileID: 774720709766511751, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
+    - target: {fileID: 601465812319399361, guid: 9e5d184fd3dd28b4f841ee7e59c5e376, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4907496202348963331}
@@ -596,30 +596,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_UI_ScorePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2987446783971363706, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -207
-      objectReference: {fileID: 0}
     - target: {fileID: 3195363646905929010, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4907496202348963331}
-    - target: {fileID: 3891046724307454916, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 88
-      objectReference: {fileID: 0}
     - target: {fileID: 3982020351458075294, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4907496202348963331}
-    - target: {fileID: 6769935629204191705, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7610592301886659567, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8706207962807213493, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
