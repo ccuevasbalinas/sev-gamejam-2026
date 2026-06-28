@@ -1,9 +1,9 @@
-using UnityEngine;
-
-using Runtime.World;
+using Patterns.ScriptableEvent;
 using Patterns.ServiceLocator;
-using Runtime.GameFlow;
 using Runtime.Components;
+using Runtime.GameFlow;
+using Runtime.World;
+using UnityEngine;
 
 namespace Runtime.Character
 {
@@ -41,6 +41,11 @@ namespace Runtime.Character
         public bool IsSliding => isSliding;
 
         private IGameManager gameManager;
+
+        [Header("Scriptable Events")]
+        [SerializeField] private ScriptableEvent onJumpEvent;
+        [SerializeField] private ScriptableEvent onSlideEvent;
+        [SerializeField] private ScriptableEvent onAttackEvent;
 
         protected override void Awake()
         {
@@ -162,7 +167,11 @@ namespace Runtime.Character
             OnDimensionSwitched();
         }
 
-        public void RequestJump() => Jump();
+        public void RequestJump() 
+        {
+            Jump();
+            onJumpEvent?.Raise();
+        } 
 
         public void RequestSlide(bool isPressed)
         {
@@ -173,12 +182,14 @@ namespace Runtime.Character
                 slideTimer = slideDuration;
                 motor?.SetHeightScale(0.5f);
                 Anim?.SetTrigger("OnSlide");
+                onSlideEvent?.Raise();
             }
         }
 
         public void RequestAttack()
         {
             Anim?.SetTrigger("OnAttack");
+            onAttackEvent?.Raise();
         }
 
         private void OnDimensionSwitched()
