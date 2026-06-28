@@ -49,8 +49,6 @@ This project was created during the **Sevilla Game Jam 2026**, a game developmen
 
 ## Team
 
-## Team
-
 | Member | Role | LinkedIn |
 |---------|------|----------|
 | **Carlos Cuevas** | Tech Lead & Programming | [LinkedIn](https://www.linkedin.com/in/ccuevasbalinas/) |
