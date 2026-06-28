@@ -13,21 +13,9 @@ namespace Runtime.Character
         [SerializeField] private GameObject headObject;
         [SerializeField] private GameObject chestObject;
 
-        [Header("Animation")]
-        [SerializeField] private Animator animator;
-        [SerializeField] private string healthChangedTrigger = "OnHit";
-        [SerializeField] private float syncDelay = 0.5f;
-
         private IWorldState worldState;
         private IPlayerHealth playerHealth;
 
-        private Coroutine syncCoroutine;
-
-        private void Awake()
-        {
-            if (animator == null)
-                animator = GetComponentInChildren<Animator>();
-        }
 
         private void Start()
         {
@@ -39,32 +27,12 @@ namespace Runtime.Character
 
         public void OnHealthChanged()
         {
-            RequestDelayedSync();
+            SyncMeshWithHealth();
         }
 
         public void OnDimensionChanged()
         {
-            RequestDelayedSync();
-        }
-
-        private void RequestDelayedSync()
-        {
-            if (syncCoroutine != null)
-                StopCoroutine(syncCoroutine);
-
-            syncCoroutine = StartCoroutine(SyncAfterAnimation());
-        }
-
-        private IEnumerator SyncAfterAnimation()
-        {
-            if (animator != null && !string.IsNullOrEmpty(healthChangedTrigger))
-                animator.SetTrigger(healthChangedTrigger);
-
-            yield return new WaitForSeconds(syncDelay);
-
             SyncMeshWithHealth();
-
-            syncCoroutine = null;
         }
 
         private void SyncMeshWithHealth()
