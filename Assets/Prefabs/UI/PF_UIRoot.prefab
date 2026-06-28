@@ -33,8 +33,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5010358212799342478}
-  - {fileID: 322562397256506301}
   - {fileID: 7595255192549215941}
+  - {fileID: 322562397256506301}
   m_Father: {fileID: 9176849596360340466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 504847845747880911, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 504847845747880911, guid: d159584b7ad0b9d47a7c5fe84aa5eabb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

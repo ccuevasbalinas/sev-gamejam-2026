@@ -82,7 +82,7 @@ namespace Runtime.UI
 
             if (timer != null)
             {
-                timeText.text = $"Time: {timer.ElapsedTime:F1}";
+                timeText.text = $"Time: {timer.ElapsedTime:F1}s";
             }
         }
 
@@ -94,7 +94,7 @@ namespace Runtime.UI
                 return;
 
             finalScoreText.text = $"Score: {stats.Score}";
-            finalTimeText.text = $"Time: {stats.Time:F1}s";
+            finalTimeText.text = $"Final Time: {stats.Time:F1}s";
         }
 
         public void Play()
